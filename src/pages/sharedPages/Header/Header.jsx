@@ -8,7 +8,7 @@ export class Header extends Component {
       <nav className="md:flex flex-cols  justify-between md:mx-36 items-center mt-5">
         <div>
           <Link to="/">
-            <h1 className="text-2xl font-semibold md:ms-0 ms-5">JobsCareer</h1>
+            <h1 className="text-2xl font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
           </Link>
         </div>
 
@@ -59,9 +59,8 @@ export class Header extends Component {
         </div>
 
         <div>
-          <button className="bg-blue-400 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-            Star Applying
-          </button>
+          <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">LOGOUT</button>
+         <Link to="/login"> <button   className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">LOGIN</button></Link>
         </div>
       </nav>
     );
