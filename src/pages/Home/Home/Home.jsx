@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Chefs from "../Chefs/Chefs";
 
 const Home = () => {
+const [chefinfo ,setChefinfo] =  useState([]);
+
+
+useEffect(()=>{
+  fetch('http://localhost:5000/chefs')
+  .then(res => res.json())
+  .then(data => setChefinfo(data.chefs))
+  .catch(error => console.log(error))
+},[])
+
+
+
   return (
-    <section className="flex justify-evenly mt-16 mx-10">
+
+
+   <main>
+     <section className="flex justify-evenly mt-16 mx-10">
       <div className="w-1/2 flex flex-col text-center justify-center ">
-        <h1 className="text-7xl pb-10 font-bold"><span>CHEF HUNTER</span><br /><span>GOOD F<span className="text-yellow-900">OOD</span> </span> </h1>
+        <h1 className="text-7xl pb-10 font-bold"><span>CHEF HUNTER  </span><br /><span>GOOD F<span className="text-yellow-900">OOD</span> </span> </h1>
         <p className="font-serif font-semibold text-gray-500 p-10">
           Good food is subjective and can vary based on personal preferences,
           culture, and dietary restrictions. However, in general, good food is
@@ -25,6 +41,19 @@ const Home = () => {
         />
       </div>
     </section>
+
+
+{/* chefs info section start  */}
+
+
+    <section className="flex justify-center flex-wrap gap-8 my-20">
+      {
+        chefinfo.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
+      }
+
+    </section>
+
+   </main>
   );
 };
 
