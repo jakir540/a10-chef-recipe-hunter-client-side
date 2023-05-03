@@ -27,9 +27,9 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/chef"
-              aria-label="chef"
-              title="chef"
+              to="/chefrecepies"
+              aria-label="chef-recepies"
+              title="chef-recepies"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
               CHEF-RECEPIES
@@ -46,16 +46,7 @@ const Header = () => {
               FEATURES
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/chefsInfo"
-              aria-label="chefsInfo"
-              title="chefsInfo"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              chefsInfo
-            </NavLink>
-          </li>
+         
           <li>
             <NavLink
               to="/Blogs"

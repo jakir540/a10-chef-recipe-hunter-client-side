@@ -21,7 +21,7 @@ const Chefs = ({ chef }) => {
           <p>Experience : {experience}</p>
 
           <div className="card-actions justify-end">
-            <Link to={`/chefs/${id}`}><button  className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">View Recepies</button></Link>
+            <Link to={`/chefrecepies/${id}`}><button  className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">View Recepies</button></Link>
           </div>
 
           <div className="card-footer flex justify-between px-2 items-center">
