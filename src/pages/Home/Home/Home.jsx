@@ -46,12 +46,15 @@ useEffect(()=>{
 {/* chefs info section start  */}
 
 
-    <section className="flex justify-center flex-wrap gap-8 my-20">
+   <section>
+      <h1 className="text-center capitalize text-5xl p-5 font-bold my-6">chiness chefs </h1>
+   <div className="flex justify-center flex-wrap gap-8 my-20">
       {
         chefinfo.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
       }
 
-    </section>
+    </div>
+   </section>
 
    </main>
   );

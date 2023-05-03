@@ -1,8 +1,9 @@
 import React from "react";
-import { FaFirstAid, AiFillLike } from "react-icons/all";
+import {AiFillLike } from "react-icons/all";
+import { Link } from "react-router-dom";
 
 const Chefs = ({ chef }) => {
-  console.log(chef);
+ 
 
   const { id, picture, likes, recipes, experience, name } = chef;
   return (
@@ -20,7 +21,7 @@ const Chefs = ({ chef }) => {
           <p>Experience : {experience}</p>
 
           <div className="card-actions justify-end">
-            <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">View Recepies</button>
+            <Link to={`/chefs/${id}`}><button  className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">View Recepies</button></Link>
           </div>
 
           <div className="card-footer flex justify-between px-2 items-center">

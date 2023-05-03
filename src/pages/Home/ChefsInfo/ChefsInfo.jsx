@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Recepi = () => {
+const ChefsInfo = () => {
     return (
         <div>
-            this is the recepi
+            
         </div>
     );
 };
 
-export default Recepi;
+export default ChefsInfo;
