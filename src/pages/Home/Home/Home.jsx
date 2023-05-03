@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Chefs from "../Chefs/Chefs";
 
+
 const Home = () => {
 const [chefinfo ,setChefinfo] =  useState([]);
 
@@ -32,6 +33,8 @@ useEffect(()=>{
           and well-being.
         </p>
       </div>
+
+
 
       <div>
         <img

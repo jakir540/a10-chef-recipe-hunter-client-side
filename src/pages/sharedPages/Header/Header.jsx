@@ -34,29 +34,7 @@ const Header = () => {
               HOME
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/chefrecepies"
-              aria-label="chef-recepies"
-              title="chef-recepies"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              CHEF-RECEPIES
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/features"
-              aria-label="features"
-              title="features"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              FEATURES
-            </NavLink>
-          </li>
-
-          <li>
+           <li>
             <NavLink
               to="/Blogs"
               aria-label="Blogs"
@@ -69,14 +47,11 @@ const Header = () => {
         </ul>
       </div>
 
-      <div>
+      <div className="flex ">
+       
+
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5"
-          >
-            LOGOUT
-          </button>
+          <div><img className="mx-3  rounded-full h-12" src={user.photoURL} alt="userProfile" title={user && user.displayName} /></div>
         ) : (
           <Link to="/login">
             <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
@@ -84,9 +59,17 @@ const Header = () => {
             </button>
           </Link>
         )}
-      </div>
+         {user && (
+          <button
+            onClick={handleLogout}
+            className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5"
+          >LOGOUT</button>
+        )}
 
-      {user && <span>{user.email}</span>}
+
+
+
+      </div>      
     </nav>
   );
 };

@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/Home/Home/Home";
-import Feature from "../pages/Feature/Feature/Feature";
+
 import Blogs from "../pages/Blogs/Blogs/Blogs";
 import RecepiesLayout from "../layouts/RecepiesLayout";
 
@@ -9,11 +9,16 @@ import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Register/Register/Register";
 import ChefRecepies from "../pages/ChefRecepies/ChefRecepies/ChefRecepies";
 import PrivateRoute from "./PrivateRoute";
+import Errorpage from "../Errorpage/Errorpage";
 
 const router = createBrowserRouter([
   {
     path: "/chefrecepies",
-    element: <PrivateRoute><RecepiesLayout></RecepiesLayout></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <RecepiesLayout></RecepiesLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: ":id",
@@ -27,6 +32,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",
@@ -34,17 +40,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
-  {
-    path: "/chefrecepies",
-    element: <ChefRecepies></ChefRecepies>,
-  },
-
-  {
-    path: "features",
-    element: <Feature></Feature>,
-  },
-
   {
     path: "blogs",
     element: <Blogs></Blogs>,
