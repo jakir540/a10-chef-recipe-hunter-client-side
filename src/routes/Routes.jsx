@@ -8,11 +8,12 @@ import RecepiesLayout from "../layouts/RecepiesLayout";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Register/Register/Register";
 import ChefRecepies from "../pages/ChefRecepies/ChefRecepies/ChefRecepies";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/chefrecepies",
-    element: <RecepiesLayout></RecepiesLayout>,
+    element: <PrivateRoute><RecepiesLayout></RecepiesLayout></PrivateRoute>,
     children: [
       {
         path: ":id",

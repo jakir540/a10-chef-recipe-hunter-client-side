@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { space } from "postcss/lib/list";
 
 const Header = () => {
-  const authInfo = AuthContext;
- 
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
-    <nav className="md:flex flex-cols  justify-between md:mx-36 items-center mt-5">      
+    <nav className="md:flex flex-cols  justify-between md:mx-36 items-center mt-5">
       <div>
         <Link to="/">
           <h1 className="text-2xl font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
@@ -46,7 +55,7 @@ const Header = () => {
               FEATURES
             </NavLink>
           </li>
-         
+
           <li>
             <NavLink
               to="/Blogs"
@@ -61,16 +70,23 @@ const Header = () => {
       </div>
 
       <div>
-        <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-          LOGOUT
-        </button>
-        <Link to="/login">
-          {" "}
-          <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-            LOGIN
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5"
+          >
+            LOGOUT
           </button>
-        </Link>
+        ) : (
+          <Link to="/login">
+            <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
+              LOGIN
+            </button>
+          </Link>
+        )}
       </div>
+
+      {user && <span>{user.email}</span>}
     </nav>
   );
 };

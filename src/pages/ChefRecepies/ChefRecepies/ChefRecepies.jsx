@@ -14,8 +14,8 @@ const ChefRecepies = () => {
     chefDetails;
 
   return (
-    <div>
-      <div>
+    <div className="py-10">
+     
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col gap-8 lg:flex-row-reverse">
             <img style={{height:"600px"}}
@@ -52,7 +52,7 @@ const ChefRecepies = () => {
             ))}
           </div>
         </section>
-      </div>
+     
     </div>
   );
 };
