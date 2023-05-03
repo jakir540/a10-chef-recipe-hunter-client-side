@@ -1,8 +1,12 @@
 import React from "react";
+import Header from "../../sharedPages/Header/Header";
+import Footer from "../../sharedPages/Footer/Footer";
 
 const Blogs = () => {
   return (
-    <div className="my-32">
+   <div>
+    <Header></Header>
+     <div className="my-32">
       <div
         tabIndex={0}
         className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box w-1/2 mx-auto mb-5"
@@ -96,6 +100,8 @@ const Blogs = () => {
         </div>
       </div>
     </div>
+    <Footer></Footer>
+   </div>
   );
 };
 
