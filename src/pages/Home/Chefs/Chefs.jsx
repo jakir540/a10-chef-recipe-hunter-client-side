@@ -9,7 +9,7 @@ const Chefs = ({ chef }) => {
     <section>
       <div className="card md:w-96 bg-base-100 shadow-xl">
         <LazyLoad height={400}>
-          <img className=" md:h-96 w-full" src={picture} alt="chef photo" />
+          <img className=" md:h-96 h-full w-full" src={picture} alt="chef photo" />
         </LazyLoad>
 
         <div className="card-body">
@@ -20,7 +20,7 @@ const Chefs = ({ chef }) => {
 
           <p>Experience : {experience}</p>
 
-          <div className="card-actions justify-end">
+          <div className="my-3 card-actions justify-end">
             <Link to={`/chefrecepies/${id}`}>
               <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
                 View Recepies

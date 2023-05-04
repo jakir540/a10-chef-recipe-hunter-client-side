@@ -21,7 +21,7 @@ useEffect(()=>{
    <main>
      <section className=" md:flex justify-evenly mt-16 md:mx-10 ">
       <div className="md:w-1/2 flex flex-col text-center justify-center ">
-        <h1 className="md:text-7xl tex-4xl pb-10 font-bold"><span>CHEF HUNTER  </span><br /><span>GOOD F<span className="text-yellow-900">OOD</span> </span> </h1>
+        <h1 className="md:text-7xl text-4xl pb-10 font-bold"><span>CHEF HUNTER  </span><br /><span>GOOD F<span className="text-yellow-900">OOD</span> </span> </h1>
         <p className="lg:w-full font-serif font-semibold text-gray-500 p-10">
           Good food is subjective and can vary based on personal preferences,
           culture, and dietary restrictions. However, in general, good food is
@@ -38,7 +38,7 @@ useEffect(()=>{
 
       <div>
         <img
-          className="rounded-md ms-5"
+          className="rounded-md ms-3"
           src="https://thekitchencommunity.org/wp-content/uploads/2021/09/asian-shutterstock_587404205.jpg"
           alt=""
         />

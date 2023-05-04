@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecepiCard = ({ recipe }) => {
+  const [isDisable ,setIsDisable] =useState(false)
   // console.log(recipe);
   const { cooking_method, name, rating, ingredients } = recipe;
   console.log(ingredients);
-  const handleFavBtn =()=>{  
-  console.log("ckisdfj");
-  }
+  const handleClick = () => {
+    toast.success('successfully! You are my Favourite Chef', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+    setIsDisable(true)
+  };
   return (
     <div>
       <div className="card h-full w-full bg-base-100 shadow-xl">
@@ -48,7 +54,8 @@ const RecepiCard = ({ recipe }) => {
           </div>
 
           <div className="card-actions justify-end">
-            <button onClick={handleFavBtn} className="btn bg-yellow-900">Favorite </button>
+            <button  onClick={handleClick} disabled={isDisable} className= " btn bg-yellow-900">Favorite </button>
+            <ToastContainer></ToastContainer>
           </div>
         </div>
       </div>
