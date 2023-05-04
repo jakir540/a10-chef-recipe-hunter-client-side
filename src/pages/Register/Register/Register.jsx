@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Header from "../../sharedPages/Header/Header";
 import Footer from "../../sharedPages/Footer/Footer";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
+
   const HandleRegisterForm = (event) => {
     setError("");
 
@@ -18,26 +20,30 @@ const Register = () => {
     const password = form.password.value;
     const name = form.name.value;
     const photo = form.photo.value;
-    console.log(email, password, name);
-    setError('')
+   
+   
     form.reset();
 
     if (password.length > 6) {
       setError("Password must give minimum 6 character");
       return;
     }
-
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        loggedUser.displayName = name;
+        loggedUser.photoURL = photo;
+        updateProfile(name,photo);
         setUser(loggedUser);
-        console.log(loggedUser);
+        console.log(name, photo);
       })
       .catch((error) => {
         console.log(error);
         setError(error.message);
       });
   };
+
+
   return (
     <div>
       <Header></Header>

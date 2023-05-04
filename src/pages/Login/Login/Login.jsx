@@ -7,13 +7,14 @@ import Footer from "../../sharedPages/Footer/Footer";
 const Login = () => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+
+  console.log(error);
+
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
   const { signIn, login, githubLogin } = useContext(AuthContext);
-  console.log(signIn);
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,12 +29,14 @@ const Login = () => {
         const loggedUser = result.user;
         setUser(loggedUser);
         console.log(loggedUser);
-        navigate(from,{replace:true});
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
+
+  //Google Login 
   const handleLoginGoogle = () => {
     login()
       .then((result) => {
@@ -41,18 +44,19 @@ const Login = () => {
         console.log(loggedUser);
       })
       .catch((error) => {
-        console.log(error.message);
+        setUser(error.message);
       });
   };
+
+  //Github login
   const handleLoginGithub = () => {
     githubLogin()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        setUser(loggedUser);
         form.reset();
       })
-      .catch((error) => {
-        console.log(error.message);
+      .catch((error) => {        
         setError(error.message);
       });
   };
@@ -63,44 +67,39 @@ const Login = () => {
         <h2 className="text-center capitalize text-4xl my-10">please login </h2>
 
         <div className="flex justify-center flex-col items-center">
-          
+          <form onSubmit={handleSubmit} className="border p-16 rounded-md">
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              name="email"
+              className="input input-bordered w-80"
+              required
+            />
+            <br />
+            <br />
+            <input
+              type="password"
+              placeholder="Enter Your Password"
+              name="password"
+              className="input input-bordered w-80"
+              required
+            />
+            <br /> <br />
+            <div className="flex justify-center">
+              <button className="bg-yellow-900 rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
+                Login
+              </button>
+            </div>
+            <br />
+            <p>
+              Don,t Have an Account :{" "}
+              <Link to="/register" className="text-yellow-900">
+                Register
+              </Link>
+            </p>
+            <p className="form-text text-red-400">{error}</p>
+          </form>
 
-            <form onSubmit={handleSubmit} className="border p-16 rounded-md">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                name="email"
-                className="input input-bordered w-80"
-                required
-              />
-              <br />
-              <br />
-              <input
-                type="password"
-                placeholder="Enter Your Password"
-                name="password"
-                className="input input-bordered w-80"
-                required
-              />
-              <br /> <br />
-              <div className="flex justify-center">
-                <button className="bg-yellow-900 rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-                  Login
-                </button>
-              </div>
-              <br />
-              <p>
-                Don,t Have an Account :{" "}
-                <Link to="/register" className="text-yellow-900">
-                  Register
-                </Link>
-              </p>
-              <p className="form-text text-red-400">{error}</p>
-            </form>
-
-         
-
-       
           <div className="mt-4 flex justify-center items-start gap-3">
             <div className="">
               <button
@@ -119,9 +118,6 @@ const Login = () => {
               </button>
             </div>
           </div>
-
-       
-          
         </div>
       </div>
       <Footer></Footer>
