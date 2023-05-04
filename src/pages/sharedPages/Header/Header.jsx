@@ -56,7 +56,7 @@ const Header = () => {
           <div><img className="mx-3  rounded-full h-12" src={user.photoURL} alt="userProfile" title={user && user.displayName} /></div>
         ) : (
           <Link to="/login">
-            <button className="bg-yellow-900 rounded-md md:p-3  text-white font-semibold md:ms-0 p-0 md:ms-5 md:mt-0 mt-5">
+            <button className="bg-yellow-900 rounded-md md:p-3  p-3 text-white font-semibold  md:ms-5 md:mt-0 mt-5">
               LOGIN
             </button>
           </Link>
