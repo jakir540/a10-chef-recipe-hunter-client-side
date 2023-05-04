@@ -41,6 +41,7 @@ const Login = () => {
     login()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from, { replace: true });
         console.log(loggedUser);
       })
       .catch((error) => {
@@ -53,6 +54,7 @@ const Login = () => {
     githubLogin()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from, { replace: true });
         setUser(loggedUser);
         form.reset();
       })
