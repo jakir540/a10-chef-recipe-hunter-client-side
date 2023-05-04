@@ -38,7 +38,7 @@ useEffect(()=>{
 
       <div>
         <img
-          className="rounded-md ms-3"
+          className="rounded-md w-96"
           src="https://thekitchencommunity.org/wp-content/uploads/2021/09/asian-shutterstock_587404205.jpg"
           alt=""
         />
