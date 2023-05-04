@@ -7,9 +7,9 @@ const Chefs = ({ chef }) => {
   const { id, picture, likes, recipes, experience, name } = chef;
   return (
     <section>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card md:w-96 bg-base-100 shadow-xl">
         <LazyLoad height={400}>
-          <img className="h-96 w-full" src={picture} alt="chef photo" />
+          <img className=" md:h-96 w-full" src={picture} alt="chef photo" />
         </LazyLoad>
 
         <div className="card-body">

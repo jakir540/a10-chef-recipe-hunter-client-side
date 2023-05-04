@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="md:flex flex-cols  justify-between md:mx-36 items-center mt-5">
+    <nav className="md:flex flex-cols  md:justify-between md:mx-36 items-center mt-5 ms-16">
       <div>
         <Link to="/">
           <h1 className="text-2xl font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
@@ -23,7 +23,7 @@ const Header = () => {
       </div>
 
       <div>
-        <ul className="items-center space-x-12 lg:flex">
+        <ul className="items-center md:space-x-12 my-5 md:flex">
           <li>
             <NavLink
               to="/"
@@ -49,14 +49,14 @@ const Header = () => {
         </ul>
       </div>
 
-      <div className="flex ">
+      <div className="md:flex items-center ">
        
 
         {user ? (
           <div><img className="mx-3  rounded-full h-12" src={user.photoURL} alt="userProfile" title={user && user.displayName} /></div>
         ) : (
           <Link to="/login">
-            <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
+            <button className="bg-yellow-900 rounded-md md:p-3  text-white font-semibold md:ms-0 p-0 md:ms-5 md:mt-0 mt-5">
               LOGIN
             </button>
           </Link>
