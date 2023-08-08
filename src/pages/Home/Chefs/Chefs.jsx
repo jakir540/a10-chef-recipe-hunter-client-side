@@ -4,6 +4,7 @@ import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 const Chefs = ({ chef }) => {
+  // console.log({chef})
   const { id, picture, likes, recipes, experience, name } = chef;
   return (
     <section>

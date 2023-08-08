@@ -16,8 +16,7 @@ const Philosophy = () => {
               recently tried my hand at making homemade sourdough bread, and the
               results were worth the time and effort. The tangy flavor and chewy
               texture of the bread were simply divine. I used a mixture of whole
-              wheat and bread flour, and let the dough rise for a full day
-              before baking it to perfection
+              wheat and bread flour
             </p>
           </div>
         </div>

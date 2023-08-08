@@ -1,9 +1,18 @@
 import React from "react";
 import Philosophy from "../Philosophy/Philosophy";
+import Purchage from "../Purchage/Purchage";
+import HotOffer from "../HotOffer/HotOffer";
+import Categories from "../Categories/Categories";
 
 const SubscribeSection = () => {
   return (
     <section>
+    <div className="my-10">
+      <Categories></Categories>
+    </div>
+    <div className="my-10">
+      <HotOffer></HotOffer>
+    </div>
      <Philosophy></Philosophy>
 
       <div className="md:flex  justify-center items-center mt-16 mb-0">
@@ -18,7 +27,7 @@ const SubscribeSection = () => {
             <h2 className="card-title">BUY GIFT CARDS ONLINE!</h2>
             <p className="text-white py-4 text-2xl">
               Provide with our Gift Card to whome you most want and is sure Food
-              refers to any substance that is consumed to provide nutritional{" "}
+              refers to any substance{" "}
             </p>
             <div className="card-actions justify-end">
               <button className="btn bg-yellow-900 mt-5">GIFT CARD</button>
@@ -33,7 +42,7 @@ const SubscribeSection = () => {
             </p>
             <div>
               <input
-                className="p-5 my-2 bg-transparent border capitalize"
+                className="p-5 h-8 my-2 bg-transparent border capitalize"
                 type="email"
                 placeholder="enter your email"
               />
@@ -74,6 +83,8 @@ const SubscribeSection = () => {
           </div>
         </div>
       </div>
+
+      <Purchage></Purchage>
     </section>
   );
 };

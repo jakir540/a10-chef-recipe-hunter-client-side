@@ -16,7 +16,8 @@ const Header = () => {
 
   return (
     <nav className="md:flex flex-cols  md:justify-between md:mx-36 items-center mt-5 ms-16">
-      <div>
+      <div className="flex items-center">
+      <img className="w-24" src="/src/assets/logo.jpg" alt="" />
         <Link to="/">
           <h1 className="text-2xl font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
         </Link>
@@ -35,6 +36,8 @@ const Header = () => {
               HOME
             </NavLink>
           </li>
+
+
            <li>
             <NavLink
               to="/Blogs"
@@ -46,6 +49,45 @@ const Header = () => {
               BLOGS
             </NavLink>
           </li>
+
+           <li>
+            <NavLink
+              to="/"
+              aria-label="Chefs"
+              title="Chefs"
+              // active,default class code write index.css
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              CHEFS
+            </NavLink>
+          </li>
+
+           <li>
+            <NavLink
+              to="/"
+              aria-label="About"
+              title="About"
+              // active,default class code write index.css
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              ABOUT
+            </NavLink>
+          </li>
+
+           <li>
+            <NavLink
+              to="/"
+              aria-label="Contact"
+              title="Contact"
+              // active,default class code write index.css
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              CONTACT
+            </NavLink>
+          </li>
+
+
+
         </ul>
       </div>
 

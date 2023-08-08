@@ -65,11 +65,17 @@ const Login = () => {
   return (
     <div>
       <Header></Header>
-      <div className="my-16">
-        <h2 className="text-center capitalize text-4xl my-10">please login </h2>
 
-        <div className="flex justify-center flex-col items-center">
-          <form onSubmit={handleSubmit} className="border p-16 rounded-md">
+    <div className="flex items-center justify-evenly">
+    <div className="w-[550px]">
+       <img src="src/assets/undraw_login_re_4vu2.svg" alt="" />
+      </div>
+
+    <div className="my-3">
+        <h2 className="text-center font-bold capitalize text-4xl my-5">please login </h2>
+
+        <div className="flex justify-center border shadow-lg shadow-zinc-400 rounded-md p-8 flex-col items-center">
+          <form onSubmit={handleSubmit} className=" p-16 rounded-md">
             <input
               type="email"
               placeholder="Enter Your Email"
@@ -88,7 +94,7 @@ const Login = () => {
             />
             <br /> <br />
             <div className="flex justify-center">
-              <button className="bg-yellow-900 rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
+              <button className="bg-yellow-900 rounded-md  px-5 py-2  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
                 Login
               </button>
             </div>
@@ -106,7 +112,7 @@ const Login = () => {
             <div className="">
               <button
                 onClick={handleLoginGoogle}
-                className="bg-yellow-800 bg-transparent rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5"
+                className="bg-yellow-800 bg-transparent rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-2"
               >
                 Login with Google
               </button>
@@ -122,6 +128,14 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+     
+
+    </div>
+
+
+   
+
       <Footer></Footer>
     </div>
   );

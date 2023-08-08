@@ -4,10 +4,12 @@ import Chefs from "../Chefs/Chefs";
 
 const Home = () => {
 const [chefinfo ,setChefinfo] =  useState([]);
+console.log({chefinfo})
 
 
 useEffect(()=>{
-  fetch('https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs')
+  // fetch('https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs')
+  fetch('http://localhost:5000/chefs')
   .then(res => res.json())
   .then(data => setChefinfo(data.chefs))
   .catch(error => console.log(error))
@@ -38,7 +40,7 @@ useEffect(()=>{
 
       <div>
         <img
-          className="rounded-md w-96"
+          className="rounded-md w-[600px]"         
           src="https://thekitchencommunity.org/wp-content/uploads/2021/09/asian-shutterstock_587404205.jpg"
           alt=""
         />
