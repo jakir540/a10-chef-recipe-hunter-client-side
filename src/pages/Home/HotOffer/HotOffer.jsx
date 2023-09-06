@@ -1,7 +1,13 @@
 import React from "react";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const HotOffer = () => {
+
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <div>
  
@@ -14,7 +20,7 @@ const HotOffer = () => {
           
         </div>
         <div>
-          <div className="card w-96 h-[500px] bg-base-100 shadow-xl">
+          <div   data-aos="flip-left" className="card w-96 h-[500px] bg-base-100 shadow-xl">
             <h2 className="text-3xl font-semibold mx-auto mb-3">Chocolate</h2>
             <figure>
               <img
@@ -36,7 +42,7 @@ const HotOffer = () => {
           </div>
         </div>
         <div>
-          <div className="card w-96 h-[500px] bg-base-100 shadow-xl">
+          <div data-aos="flip-left" className="card w-96 h-[500px] bg-base-100 shadow-xl">
             <h2 className="text-3xl font-semibold mx-auto mb-3">Rolls</h2>
             <figure>
               <img
@@ -58,7 +64,7 @@ const HotOffer = () => {
           </div>
         </div>
         <div>
-          <div className="card w-96  h-[500px] bg-base-100 shadow-xl">
+          <div data-aos="flip-left" className="card w-96  h-[500px] bg-base-100 shadow-xl">
             <h2 className="text-3xl font-semibold mx-auto mb-3">Chocolate</h2>
             <figure>
               <img

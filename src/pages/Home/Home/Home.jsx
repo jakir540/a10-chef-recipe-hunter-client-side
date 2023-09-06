@@ -27,13 +27,13 @@ const Home = () => {
   return (
     <main>
       <section className=" md:flex flex-col justify-evenly mt-16 md:mx-10 ">
-        <div className="md:w-full flex flex-col text-center justify-center ">
+        <div className="md:w-full flex flex-col text-start justify-center ">
           <h1 className="md:text-4xl text-xl pb-10 font-bold">
             <span>CHEF HUNTER </span>
             <span>
               GOOD F<span className="text-yellow-900">OOD</span>{" "}
             </span>{" "}
-            Corner{" "}
+            CORNER{" "}
           </h1>
         </div>
 
@@ -57,54 +57,65 @@ const Home = () => {
               autoplay={{ delay: 2000 }}
             >
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Veggie burger</h2>
                 <img
                   className="h-[600px]"
                   src="https://cdn.pixabay.com/photo/2020/03/21/11/17/burger-4953465_1280.jpg"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Coco Burger</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">
+Stellar Burger</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80https://cdn.pixabay.com/photo/2019/04/22/08/37/burger-4145977_1280.jpg"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Burger Heaven</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">
+Aristocrat Burger</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Fatburger</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Shake Shack</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Cheeseburger</h2>
                 <img
                   className="h-[600px]"
                   src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
                 />
               </SwiperSlide>
               <SwiperSlide>
+              <h2 className="top-[550px] left-64 relative text-white text-5xl">Beef burger</h2>
                 <img
                   className="h-[600px]"
                   src="https://plus.unsplash.com/premium_photo-1661387558893-63d24776cf38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
