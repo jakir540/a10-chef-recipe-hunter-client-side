@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { space } from "postcss/lib/list";
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,12 +16,16 @@ const Header = () => {
   };
 
   return (
-    <nav className="md:flex flex-cols  md:justify-between md:mx-36 items-center mt-5 ms-16">
+    <nav className="md:flex flex-cols bg-yellow-900  sticky top-0 z-50  transition    md:justify-between items-center mt-5 ">
       <div className="flex items-center">
-      <img className="w-24" src="/src/assets/logo.jpg" alt="" />
+      <img className="w-20 mx-5 rounded-full" src="/src/assets/logo.jpg" alt="" />
         <Link to="/">
-          <h1 className="text-2xl font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
+          <h1 className="text-2xl text-white font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
         </Link>
+        <div className="flex items-center ">
+        <input type="text" className="p-3 ms-4 rounded-md" placeholder="searce chef" />
+        <span className="-ms-8 text-2xl"><AiOutlineSearch></AiOutlineSearch> </span>
+        </div>
       </div>
 
       <div>

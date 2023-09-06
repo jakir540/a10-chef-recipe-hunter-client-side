@@ -1,11 +1,13 @@
 import React from "react";
 
+
 const HotOffer = () => {
   return (
     <div>
+ 
     <h1 className="text-center text-5xl font-bold mb-8">What,s Hot</h1>
     
-      <div className="flex items-center justify-center gap-8">
+      <div className="lg:flex items-center justify-center gap-8">
 
 
         <div>
@@ -27,7 +29,7 @@ const HotOffer = () => {
               </h2>
               <p>
                 2 cups cream 120 grams dark chocolate, chopped 2 bags of earl
-                grey tea 6 egg yolks 3 Tablespoons of sugar 1/2 cup whipping…
+               
               </p>
               <div className="card-actions justify-end"></div>
             </div>
@@ -49,7 +51,7 @@ const HotOffer = () => {
               </h2>
               <p>
                 2 cups cream 120 grams dark chocolate, chopped 2 bags of earl
-                grey tea 6 egg yolks 3 Tablespoons of sugar 1/2 cup whipping…
+            
               </p>
               <div className="card-actions justify-end"></div>
             </div>
@@ -71,7 +73,7 @@ const HotOffer = () => {
               </h2>
               <p>
                 2 cups cream 120 grams dark chocolate, chopped 2 bags of earl
-                grey tea 6 egg yolks 3 Tablespoons of sugar 1/2 cup whipping…
+               
               </p>
               <div className="card-actions justify-end"></div>
             </div>

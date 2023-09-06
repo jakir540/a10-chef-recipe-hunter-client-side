@@ -1,0 +1,6 @@
+.sticky-navbar {
+    background-color: rgba(31, 41, 55, 1); 
+  }
+  .sticky-navbar.sticky-opacity {
+    background-color: rgba(31, 41, 55, 0.8); 
+  }

@@ -46,7 +46,7 @@ const Register = () => {
     <div>
       <Header></Header>
 
-      <div className="flex items-center justify-evenly">
+      <div className="flex items-center justify-evenly mb-32">
         <div className="my-5">
           <h2 className="text-center font-bold capitalize text-4xl my-5">
             please Register{" "}

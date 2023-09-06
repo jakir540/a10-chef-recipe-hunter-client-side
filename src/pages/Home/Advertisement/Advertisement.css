@@ -1,0 +1,186 @@
+
+  .advertisement {
+    transform: translateY(-200px);
+    background-color: hsl(219, 48%, 8%);
+    height: 1000px;
+    position: relative;
+    margin-bottom: -200px;
+    padding: 200px;
+    box-sizing: border-box;
+    perspective: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x: hidden;
+    color: white;
+  }
+  
+  
+  .advertisementCube {
+    width: 300px;
+    height: 300px;
+    animation: cubeRotation 15s linear infinite alternate;
+    transform-style: preserve-3d;
+  }
+  .advertisementCubeFaces {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0.7;
+  }
+  .cubeShadow {
+    width: 300px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.171);
+    border-radius: 50%;
+    animation: cubeShadow 2s ease-in-out infinite alternate ;
+    filter: blur(3px);
+    margin-bottom: -120px;
+  }
+  .advertisementCubeFaces > img {
+    width: inherit;
+    height: inherit;
+    /* background: transparent; */
+  }
+  
+  /* all logo css herer */
+  .advertisementBox {
+ 
+    padding: 0 2vmax;
+    position: absolute;
+    display: flex;  
+    align-items: center; 
+    justify-content: center;
+    top: 10px;
+    width: 1000px;
+    height: 120px;
+  
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  
+  .advertisementBox > svg {
+    font-size: 5vmax;
+    color: white;
+    transition: all 3s;
+    margin: 10px;
+  }
+  .advertisementBox > svg:hover {
+    transform: scale(1.5);
+  }
+  
+  
+  
+
+   .advertisementFaces1{
+    transform: translate3d(0,0,200px);
+  }
+  .advertisementCubeFaces2{
+    transform: rotateY(180deg) translate3d(0,0,200px);
+  }
+  .advertisementCubeFace3{
+    transform: rotateY(-90deg) translate3d(0,0,150px);
+  }
+  .advertisementCubeFace4{
+    transform: rotateY(90deg) translate3d(0,0,150px);
+  }
+  .advertisementCubeFace5{
+    transform: rotateX(90deg) translate3d(0,0,150px);
+  }
+  .advertisementCubeFace6{
+    transform: rotateX(-90deg) translate3d(0,0,150px);
+  } 
+  
+  @keyframes cubeRotation {
+    to {
+      transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
+    }
+  }
+  @keyframes cubeShadow {
+    to {
+      transform: scale(1.2) translate(-10px);
+    }
+  } 
+  
+  @keyframes advertisementBoxAnimationOn {
+    from {
+      right: -500px;
+    }
+    to {
+      right: 230px;
+    }
+  }
+  @keyframes advertisementBoxAnimationOff {
+    from {
+      right: 40px;
+     
+    }
+    to {
+      right: -300px;
+    }
+  }
+  
+  
+  /* shapes css */
+  .custom-shape-divider-top-1687544512 {
+      position: absolute;
+      /* top: 0;
+      left: 0; */
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+  }
+   
+  .custom-shape-divider-top-1687544512 svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 130px;
+     
+  }
+   
+  .custom-shape-divider-top-1687544512 .shape-fill {
+      fill:black;
+      
+  }
+  
+  
+  
+  
+  
+  
+  /* responsive ------------------- */
+  
+  @media (max-width: 600px) {
+    
+    .advertisementBox {
+      visibility: hidden;
+    }
+    .advertisementCube {
+      width: 200px;
+      height: 200px;
+      
+    }
+    .cubeShadow {
+      width: 200px;
+      
+    }
+   
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -2,15 +2,26 @@ import React from "react";
 import { AiFillLike } from "react-icons/all";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Chefs = ({ chef }) => {
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   // console.log({chef})
   const { id, picture, likes, recipes, experience, name } = chef;
   return (
     <section>
-      <div className="card md:w-96 bg-base-100 shadow-xl">
-        <LazyLoad height={400}>
-          <img className=" md:h-96 h-full w-full" src={picture} alt="chef photo" />
+      <div data-aos="fade-up" className="  card md:w-96 bg-base-100 shadow-xl">
+        <LazyLoad height={360}>
+          <img
+            className=" md:h-96 h-full w-full"
+            src={picture}
+            alt="chef photo"
+          />
         </LazyLoad>
 
         <div className="card-body">
