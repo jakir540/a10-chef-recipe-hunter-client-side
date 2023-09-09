@@ -13,6 +13,21 @@ const Delevery = () => {
   }, []);
   return (
     <div className="flex items-center justify-center my-10 h-[600px]">
+
+
+     
+      <div>
+        <div className="w-full h-full">
+          {" "}
+          <Lottie
+            loop
+            animationData={lottieJson}
+            play
+            className="w-full h-full"
+          />
+        </div>
+      </div>
+
       <div className="">
         <div className="flex flex-col w-full lg:flex-row">
           <div
@@ -116,17 +131,7 @@ const Delevery = () => {
         </div>
       </div>
 
-      <div>
-        <div className="w-full h-full">
-          {" "}
-          <Lottie
-            loop
-            animationData={lottieJson}
-            play
-            className="w-full h-full"
-          />
-        </div>
-      </div>
+
     </div>
   );
 };

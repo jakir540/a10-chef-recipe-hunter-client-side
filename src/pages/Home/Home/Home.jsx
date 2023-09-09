@@ -17,8 +17,8 @@ const Home = () => {
   console.log({ chefinfo });
 
   useEffect(() => {
-    // fetch('https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs')
-    fetch("http://localhost:5000/chefs")
+    fetch('https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs')
+    // fetch("http://localhost:3000/chefs")
       .then((res) => res.json())
       .then((data) => setChefinfo(data.chefs))
       .catch((error) => console.log(error));
