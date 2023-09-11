@@ -11,9 +11,9 @@ const Categories = () => {
 
 
   return (
-    <div>
+    <div className="w-[1280px] mx-auto">
       <h1 className="text-center font-bold text-5xl my-8">Categories Food</h1>
-      <div className="w-full h-96 bg-slate-200 flex items-center justify-between px-8">
+      <div className=" h-96 bg-[#f2f2f2] flex items-center justify-between px-8">
         <div data-aos="fade-right">
           <h2 className="text-3xl mb-5 "> Recepies Categories</h2>
           <div className="text-xl">
