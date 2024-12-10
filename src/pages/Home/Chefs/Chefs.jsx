@@ -1,55 +1,56 @@
-import React from "react";
-import { AiFillLike } from "react-icons/all";
+import React, { useEffect } from "react";
+import { AiFillLike } from "react-icons/ai";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const Chefs = ({ chef }) => {
-  useEffect(function () {
+  useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
 
-  // console.log({chef})
   const { id, picture, likes, recipes, experience, name } = chef;
+
   return (
-    <section>
-      <div data-aos="fade-up" className="card  md:w-96 w-[350px] bg-base-100 shadow-xl">
+    <section className="flex justify-center py-6">
+      <div
+        data-aos="fade-up"
+        className="card md:w-96 w-[350px] bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        {/* Chef Image */}
         <LazyLoad height={360}>
           <img
-            className=" md:h-96 h-full w-full"
+            className="md:h-80 h-full w-full object-cover rounded-t-lg"
             src={picture}
-            alt="chef photo"
+            alt="Chef"
           />
         </LazyLoad>
 
-        <div className="card-body">
-          <div className="card-title">
-            {" "}
-            <h2 className="">{name}</h2>
-          </div>
+        {/* Card Content */}
+        <div className="p-6">
+          <h2 className="text-xl font-bold text-gray-800 mb-2">{name}</h2>
+          <p className="text-gray-600 text-sm mb-4">
+            Experience: <span className="font-medium">{experience} years</span>
+          </p>
 
-          <p>Experience : {experience}</p>
-
-          <div className="my-3 card-actions justify-end">
-            <Link to={`/chefrecepies/${id}`}>
-              <button className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-                View Recepies
-              </button>
-            </Link>
-          </div>
-
-          <div className="card-footer flex justify-between px-2 items-center">
-            <div>Recipes: {recipes}</div>
-
-            <div className="text-2xl flex gap-2 items-center">
-              <AiFillLike></AiFillLike>
-              <p>
-                <small>{likes}</small>
-              </p>
+          {/* Recipes and Likes */}
+          <div className="flex justify-between items-center mb-4">
+            <p className="text-gray-700 text-sm">
+              Recipes: <span className="font-medium">{recipes}</span>
+            </p>
+            <div className="flex items-center text-gray-700 gap-1">
+              <AiFillLike className="text-yellow-900 text-lg" />
+              <span className="text-sm">{likes}</span>
             </div>
           </div>
+
+          {/* View Recipes Button */}
+          <Link to={`/chefrecepies/${id}`}>
+            <button className="w-full bg-yellow-900 text-white py-2 px-4 rounded-lg font-semibold hover:bg-yellow-700 transition-colors duration-300">
+              View Recipes
+            </button>
+          </Link>
         </div>
       </div>
     </section>
