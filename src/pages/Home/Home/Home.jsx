@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import Chefs from "../Chefs/Chefs";
 
-import { useRef } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-// import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 const Home = () => {
@@ -17,8 +13,7 @@ const Home = () => {
   console.log({ chefinfo });
 
   useEffect(() => {
-    fetch('https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs')
-    // fetch("http://localhost:3000/chefs")
+    fetch("https://the-chef-recepi-hunter-server-jakir540.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefinfo(data.chefs))
       .catch((error) => console.log(error));
@@ -26,271 +21,130 @@ const Home = () => {
 
   return (
     <main>
-      <section className=" md:flex flex-col justify-evenly mt-16 md:mx-10 ">
-        <div className="md:w-full flex flex-col text-start justify-center ">
-          <h1 className="md:text-4xl text-xl pb-10 font-bold">
-            <span>CHEF HUNTER </span>
-            <span>
-              GOOD F<span className="text-yellow-900">OOD</span>{" "}
-            </span>{" "}
-            CORNER{" "}
+      {/* Header Section */}
+      <section className="flex flex-col justify-center items-center mt-16 px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-extrabold tracking-wide text-yellow-900">
+            <span className="block">CHEF HUNTER</span>
+            <span className="block">
+              GOOD F<span className="text-yellow-600">OOD</span> CORNER
+            </span>
           </h1>
+          <p className="text-lg text-gray-600 mt-4">
+            Discover top-notch chefs, delicious recipes, and categories that
+            suit your cravings.
+          </p>
         </div>
 
-        <div className="lg:flex justify-between">
-          <div className="lg:w-9/12">
-            <Swiper
-              effect={"coverflow"}
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={"auto"}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-              }}
-              pagination={true}
-              modules={[EffectCoverflow, Pagination]}
-              className="mySwiper"
-              autoplay={{ delay: 2000 }}
-            >
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Veggie burger</h2>
+        {/* Swiper Section */}
+        <div className="w-full lg:w-10/12 mb-16">
+          <Swiper
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            slidesPerView="auto"
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000 }}
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper shadow-lg rounded-xl overflow-hidden"
+          >
+            {[
+              {
+                title: "Veggie Burger",
+                img: "https://cdn.pixabay.com/photo/2020/03/21/11/17/burger-4953465_1280.jpg",
+              },
+              {
+                title: "Coco Burger",
+                img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80",
+              },
+              {
+                title: "Stellar Burger",
+                img: "https://cdn.pixabay.com/photo/2019/04/22/08/37/burger-4145977_1280.jpg",
+              },
+              {
+                title: "Burger Heaven",
+                img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+              },
+              {
+                title: "Aristocrat Burger",
+                img: "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+              },
+              {
+                title: "Fatburger",
+                img: "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80",
+              },
+            ].map((slide, index) => (
+              <SwiperSlide key={index} className="relative">
                 <img
-                  className="h-[600px]"
-                  src="https://cdn.pixabay.com/photo/2020/03/21/11/17/burger-4953465_1280.jpg"
+                  className="h-[500px] object-cover rounded-lg shadow-md"
+                  src={slide.img}
+                  alt={slide.title}
                 />
+                <h2 className="absolute bottom-10 left-10 bg-yellow-900 bg-opacity-80 text-white text-3xl font-bold px-6 py-2 rounded-md">
+                  {slide.title}
+                </h2>
               </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Coco Burger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">
-Stellar Burger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80https://cdn.pixabay.com/photo/2019/04/22/08/37/burger-4145977_1280.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Burger Heaven</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">
-Aristocrat Burger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Fatburger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Shake Shack</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Cheeseburger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-              <h2 className="top-[550px] left-64 relative text-white text-5xl">Beef burger</h2>
-                <img
-                  className="h-[600px]"
-                  src="https://plus.unsplash.com/premium_photo-1661387558893-63d24776cf38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                />
-              </SwiperSlide>
-            </Swiper>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Categories Section */}
+        <div className="w-full lg:w-10/12">
+          <h2 className="text-center text-3xl font-bold text-yellow-900 mb-10">
+            Categories of Food
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Burger",
+                count: 12,
+                img: "https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg",
+              },
+              {
+                name: "Pizza",
+                count: 10,
+                img: "https://cdn.pixabay.com/photo/2016/05/25/10/43/hamburger-1414423_1280.jpg",
+              },
+              {
+                name: "Cheeseburger",
+                count: 5,
+                img: "https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg",
+              },
+            ].map((category, index) => (
+              <div
+                key={index}
+                className="flex items-center p-4 bg-yellow-100 rounded-lg shadow-md hover:bg-yellow-200 transition"
+              >
+                <div className="flex-shrink-0 w-20 h-20">
+                  <img
+                    className="rounded-full object-cover w-full h-full"
+                    src={category.img}
+                    alt={category.name}
+                  />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-xl font-bold text-yellow-900">
+                    {category.name}
+                  </h3>
+                  <p className="text-gray-600">{category.count} items</p>
+                </div>
+              </div>
+            ))}
           </div>
-
-          <div>
-            <h1 className="text-center text-2xl  py-8 mt-[-100px]  font-bold uppercase">
-              Categories Of Food
-            </h1>
-
-            <marquee behavior="" direction="up" className="text-2xl p-5 ">
-              <div className="p-1">
-                <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Burger (12)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div  className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Pizza (10)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2016/05/25/10/43/hamburger-1414423_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              
-              
-              </div>
-
-              <div  className="p-1">
-              
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Cheeseburger (05)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div></div>
-              <div  className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Chicken burger (10)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div  className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> BurgerMini burgers (18)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026582_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Steak (07)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2017/08/26/22/01/background-2684464_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Soup (12)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              
-              </div>
-              <div className="p-1">
-              <div className="flex justify-between bg-base-200 items-center px-5 py-2 rounded-md">
-                  <div>
-                    <h1 className="text-xl font-bold"> Chicken (06)</h1>
-                  </div>
-
-                  <div>
-                    <label
-                      tabIndex={0}
-                      className="btn btn-ghost btn-circle avatar"
-                    >
-                      <div className="w-32 rounded-full">
-                        <img src="https://cdn.pixabay.com/photo/2014/01/24/04/05/fried-chicken-250863_1280.jpg" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-             
-              
-            </marquee>
-          </div>
-
         </div>
       </section>
 
-      {/* chefs info section start  */}
-
+      {/* Chefs Info Section */}
       <section>
-        <h1 className="text-center capitalize text-5xl  md:p-5 font-bold my-6">
-          chiness chefs{" "}
+        <h1 className="text-center capitalize text-5xl md:p-5 font-bold my-6 text-yellow-900">
+          Chinese Chefs
         </h1>
         <div className="flex justify-center flex-wrap gap-8 my-20 ms-0 items-center">
           {chefinfo.map((chef) => (
