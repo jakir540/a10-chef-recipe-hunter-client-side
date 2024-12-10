@@ -1,115 +1,121 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { space } from "postcss/lib/list";
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   const handleLogout = () => {
     logOut()
       .then()
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
   return (
-    <nav className="md:flex flex-cols bg-yellow-900  sticky top-0 z-50  transition    md:justify-between items-center mt-5 ">
-      <div className="flex items-center">
-      <img className="w-20 mx-5 rounded-full" src="/src/assets/logo.jpg" alt="" />
-        <Link to="/">
-          <h1 className="text-2xl text-white font-semibold md:ms-0 ms-5">CHEF HUNTER</h1>
-        </Link>
-        <div className="flex items-center ">
-        <input type="text" className="p-3 ms-4 rounded-md" placeholder="searce chef" />
-        <span className="-ms-8 text-2xl"><AiOutlineSearch></AiOutlineSearch> </span>
+    <header className="bg-yellow-900 sticky top-0 z-50 shadow-md">
+      <div className="container mx-auto flex items-center justify-between py-4 px-6">
+        {/* Logo Section */}
+        <div className="flex items-center space-x-4">
+          <img
+            className="w-16 h-16 rounded-full"
+            src="/src/assets/logo.jpg"
+            alt="Chef Hunter Logo"
+          />
+          <Link to="/" className="text-3xl font-bold text-white">
+            CHEF HUNTER
+          </Link>
+        </div>
+
+        {/* Search Bar */}
+        <div className="relative hidden md:block">
+          <input
+            type="text"
+            className="pl-4 pr-10 py-2 rounded-lg w-80 bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            placeholder="Search chef"
+          />
+          <AiOutlineSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-xl" />
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="hidden md:flex space-x-6">
+          {["Home", "Chefs", "About", "Contact"].map((link, index) => (
+            <NavLink
+              key={index}
+              to={`/${link.toLowerCase()}`}
+              className={({ isActive }) =>
+                `text-lg font-medium ${
+                  isActive
+                    ? "text-yellow-300 underline"
+                    : "text-white hover:text-yellow-300"
+                }`
+              }
+            >
+              {link.toUpperCase()}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* User Section */}
+        <div className="flex items-center space-x-4">
+          {user ? (
+            <>
+              <img
+                className="w-10 h-10 rounded-full border-2 border-yellow-500"
+                src={user.photoURL}
+                alt="User Profile"
+                title={user.displayName || "User"}
+              />
+              <button
+                onClick={handleLogout}
+                className="bg-yellow-700 text-white px-4 py-2 rounded-lg shadow hover:bg-yellow-600 transition"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="bg-yellow-700 text-white px-4 py-2 rounded-lg shadow hover:bg-yellow-600 transition">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
 
-      <div>
-        <ul className="items-center md:space-x-12 my-5 md:flex">
-          <li>
+      {/* Mobile Navigation */}
+      <div className="md:hidden bg-yellow-800">
+        <div className="flex justify-between items-center py-3 px-5">
+          <div className="relative w-full">
+            <input
+              type="text"
+              className="pl-4 pr-10 py-2 rounded-lg w-full bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              placeholder="Search chef"
+            />
+            <AiOutlineSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-xl" />
+          </div>
+        </div>
+        <nav className="flex justify-around py-3">
+          {["Home", "Chefs", "About", "Contact"].map((link, index) => (
             <NavLink
-              to="/"
-              aria-label="Home"
-              title="Home"
-              // active,default class code write index.css
-              className={({isActive})=> (isActive ? "active": "default:")}
+              key={index}
+              to={`/${link.toLowerCase()}`}
+              className={({ isActive }) =>
+                `text-sm font-medium ${
+                  isActive
+                    ? "text-yellow-300 underline"
+                    : "text-white hover:text-yellow-300"
+                }`
+              }
             >
-              HOME
+              {link.toUpperCase()}
             </NavLink>
-          </li>
-
-
-           
-
-           <li>
-            <NavLink
-              to="/"
-              aria-label="Chefs"
-              title="Chefs"
-              // active,default class code write index.css
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              CHEFS
-            </NavLink>
-          </li>
-
-           <li>
-            <NavLink
-              to="/"
-              aria-label="About"
-              title="About"
-              // active,default class code write index.css
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              ABOUT
-            </NavLink>
-          </li>
-
-           <li>
-            <NavLink
-              to="/"
-              aria-label="Contact"
-              title="Contact"
-              // active,default class code write index.css
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              CONTACT
-            </NavLink>
-          </li>
-
-
-
-        </ul>
+          ))}
+        </nav>
       </div>
-
-      <div className="md:flex items-center ">
-       
-
-        {user ? (
-          <div><img className="mx-3  rounded-full h-12" src={user.photoURL} alt="userProfile" title={user && user.displayName} /></div>
-        ) : (
-          <Link to="/login">
-            <button className="bg-yellow-900 rounded-md md:p-3  p-3 text-white font-semibold  md:ms-5 md:mt-0 mt-5">
-              LOGIN
-            </button>
-          </Link>
-        )}
-         {user && (
-          <button
-            onClick={handleLogout}
-            className="bg-yellow-900 rounded-md p-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5"
-          >LOGOUT</button>
-        )}
-
-
-
-
-      </div>      
-    </nav>
+    </header>
   );
 };
 

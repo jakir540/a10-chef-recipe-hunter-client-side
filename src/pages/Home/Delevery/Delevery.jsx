@@ -12,7 +12,7 @@ const Delevery = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <div className="flex items-center justify-center my-10 h-[600px]">
+    <div className=" lg:flex items-center justify-center my-10 h-[600px]">
 
 
      
@@ -28,13 +28,17 @@ const Delevery = () => {
         </div>
       </div>
 
-      <div className="">
+
+
+      <div className="hidden sm:block">
         <div className="flex flex-col w-full lg:flex-row">
           <div
             data-aos="fade-right"
             className="grid flex-grow h-48 mt-56 w-56 mr-[-220px]   card bg-base-300 rounded-box "
           >
             <div className="stat">
+
+
               <div className="stat-figure text-[#e8505b] mb-3 ms-[-36px] ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -50,12 +54,20 @@ const Delevery = () => {
                   ></path>
                 </svg>
               </div>
+
               <div className="stat-title text-xl capitalize font-semibold">
                 Total deliveries
               </div>
+
+
               <div className="stat-value text-[#e8505b]">25.6K</div>
+
               <div className="stat-desc text-sm">21% more than last month</div>
+
+
             </div>
+
+
           </div>
           {/* ---------------------------1 ------------------- */}
           <div
@@ -128,8 +140,13 @@ const Delevery = () => {
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
+
+
 
 
     </div>

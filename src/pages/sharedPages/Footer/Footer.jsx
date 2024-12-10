@@ -6,7 +6,7 @@ import { BsGithub } from "react-icons/bs";
 const Footer = () => {
   return (
     <div className="lg:mx-0">
-      <footer className="footer md:p-5  p-16   bg-black text-white text-center -mt-20  ">
+      <footer className="footer md:p-5  p-16   bg-black text-white text-center -mt-20  p/">
         <div>
           <span className="footer-title ">Services</span>
           <a className="link link-hover">Quality Fooded</a>
@@ -36,7 +36,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
 
-        <div className="md:place-self-center md:justify-self-end">
+        <div className="md:place-self-center md:justify-self-end lg:h-full pb-8">
           <div>
             <h2 className="text-xl font-semibold text-center mt-8 mb-5">
               Social Media
@@ -86,6 +86,8 @@ const Footer = () => {
             <img className="bg-white" src={iconGooogle} alt="" />
           </div>
         </div>
+
+
       </footer>
     </div>
   );

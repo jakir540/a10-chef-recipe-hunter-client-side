@@ -37,8 +37,8 @@ const Home = () => {
           </h1>
         </div>
 
-        <div className="flex justify-between">
-          <div className="w-9/12">
+        <div className="lg:flex justify-between">
+          <div className="lg:w-9/12">
             <Swiper
               effect={"coverflow"}
               grabCursor={true}
@@ -282,6 +282,7 @@ Aristocrat Burger</h2>
               
             </marquee>
           </div>
+
         </div>
       </section>
 
@@ -291,7 +292,7 @@ Aristocrat Burger</h2>
         <h1 className="text-center capitalize text-5xl  md:p-5 font-bold my-6">
           chiness chefs{" "}
         </h1>
-        <div className="flex justify-center flex-wrap gap-8 my-20 ms-8 items-center">
+        <div className="flex justify-center flex-wrap gap-8 my-20 ms-0 items-center">
           {chefinfo.map((chef) => (
             <Chefs key={chef.id} chef={chef}></Chefs>
           ))}

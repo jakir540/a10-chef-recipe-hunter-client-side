@@ -15,7 +15,7 @@ const Chefs = ({ chef }) => {
   const { id, picture, likes, recipes, experience, name } = chef;
   return (
     <section>
-      <div data-aos="fade-up" className="  card md:w-96 bg-base-100 shadow-xl">
+      <div data-aos="fade-up" className="card  md:w-96 w-[350px] bg-base-100 shadow-xl">
         <LazyLoad height={360}>
           <img
             className=" md:h-96 h-full w-full"
