@@ -22,15 +22,15 @@ const Home = () => {
   return (
     <main>
       {/* Header Section */}
-      <section className="flex flex-col justify-center items-center mt-16 px-8">
-        <div className="text-center mb-16">
+      <section className="flex flex-col justify-center items-center mt-5 px-8">
+        <div className="text-center mb-10">
           <h1 className="text-5xl font-extrabold tracking-wide text-yellow-900">
             <span className="block">CHEF HUNTER</span>
             <span className="block">
               GOOD F<span className="text-yellow-600">OOD</span> CORNER
             </span>
           </h1>
-          <p className="text-lg text-gray-600 mt-4">
+          <p className="text-lg text-gray-600 mt-2">
             Discover top-notch chefs, delicious recipes, and categories that
             suit your cravings.
           </p>
@@ -143,10 +143,10 @@ const Home = () => {
 
       {/* Chefs Info Section */}
       <section>
-        <h1 className="text-center capitalize text-5xl md:p-5 font-bold my-6 text-yellow-900">
+        <h1 className="text-center capitalize text-5xl md:p-2 font-bold my-4 text-yellow-900">
           Chinese Chefs
         </h1>
-        <div className="flex justify-center flex-wrap gap-8 my-20 ms-0 items-center">
+        <div className="flex justify-center flex-wrap gap-5 mt-3 ms-0 items-center">
           {chefinfo.map((chef) => (
             <Chefs key={chef.id} chef={chef}></Chefs>
           ))}

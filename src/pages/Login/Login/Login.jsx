@@ -64,8 +64,6 @@ const Login = () => {
   };
   return (
     <div>
-      <Header></Header>
-
       <div className="flex items-center justify-evenly mb-32">
         <div className="my-3">
           <h2 className="text-center font-bold capitalize text-4xl my-5">
@@ -127,12 +125,10 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="w-[550px]">  
+        <div className="w-[550px]">
           <img src="src/assets/undraw_login_re_4vu2.svg" alt="" />
         </div>
       </div>
-
-      <Footer></Footer>
     </div>
   );
 };

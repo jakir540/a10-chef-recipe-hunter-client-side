@@ -13,7 +13,7 @@ const Chefs = ({ chef }) => {
   const { id, picture, likes, recipes, experience, name } = chef;
 
   return (
-    <section className="flex justify-center py-6">
+    <section className="flex justify-center py-3">
       <div
         data-aos="fade-up"
         className="card md:w-96 w-[350px] bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
