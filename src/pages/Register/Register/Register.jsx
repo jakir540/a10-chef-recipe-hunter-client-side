@@ -1,17 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import Header from "../../sharedPages/Header/Header";
-import Footer from "../../sharedPages/Footer/Footer";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
   const [error, setError] = useState("");
-  const [user, setUser] = useState(null);
 
-  const HandleRegisterForm = (event) => {
+  const handleRegisterForm = async (event) => {
     setError("");
 
     event.preventDefault();
@@ -23,96 +20,105 @@ const Register = () => {
 
     form.reset();
 
-    if (password.length > 6) {
-      setError("Password must give minimum 6 character");
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
       return;
     }
-    createUser(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        loggedUser.displayName = name;
-        loggedUser.photoURL = photo;
-        updateProfile(name, photo);
-        setUser(loggedUser);
-        console.log(name, photo);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error.message);
-      });
+
+    try {
+      const result = await createUser(email, password);
+      const loggedUser = result.user;
+      loggedUser.displayName = name;
+      loggedUser.photoURL = photo;
+      await updateProfile(loggedUser);
+      console.log(name, photo);
+    } catch (error) {
+      console.error(error);
+      setError(error.message);
+    }
   };
 
   return (
-    <div>
-      <Header></Header>
-
-      <div className="flex items-center justify-evenly mb-32">
-        <div className="my-5">
-          <h2 className="text-center font-bold capitalize text-4xl my-5">
-            please Register{" "}
-          </h2>
-
-          <div className="flex justify-center border shadow-lg shadow-zinc-400 rounded-md">
-            <form
-              onSubmit={HandleRegisterForm}
-              className="border p-16 rounded-md"
-            >
-              <input
-                type="name"
-                placeholder="Enter Your Name"
-                name="name"
-                className="input input-bordered w-80"
-                required
-              />
-              <br />
-              <br />
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                name="email"
-                className="input input-bordered w-80"
-                required
-              />
-              <br />
-              <br />
-              <input
-                type="password"
-                placeholder="Enter Your Password"
-                name="password"
-                className="input input-bordered w-80"
-                required
-              />
-              <br />
-              <br />
-              <input
-                type="text"
-                placeholder="Photo URL"
-                name="photo"
-                className="input input-bordered w-80"
-              />
-              <br /> <br />
-              <div className="flex justify-center">
-                <button className="bg-yellow-900 rounded-md px-5 py-3  text-white font-semibold md:ms-0 ms-5 md:mt-0 mt-5">
-                  Register
-                </button>
-              </div>
-              <br />
-              <p>
-                Do You Have an Account ?
-                <Link to="/login" className="text-yellow-900">
-                  Login
-                </Link>
-              </p>
-              <p className="form-text text-red-400">{error}</p>
-            </form>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-96 p-10 bg-white rounded-lg shadow-md flex flex-col">
+        <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
+        <form onSubmit={handleRegisterForm} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              className="border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500 w-full"
+              required
+            />
           </div>
-        </div>
-        <div className="w-[550px]">
-          <img src="src/assets/undraw_sign_up_n6im.svg" alt="" />
-        </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              className="border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500 w-full"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium mb-2"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              className="border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500 w-full"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="photo" className="block text-sm font-medium mb-2">
+              Photo URL (optional)
+            </label>
+            <input
+              type="text"
+              id="photo"
+              name="photo"
+              placeholder="Enter photo URL"
+              className="border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500 w-full"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600"
+          >
+            Register
+          </button>
+          <p className="text-center mt-4">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
+              Login
+            </Link>
+          </p>
+          {error && <p className="text-red-500 text-center">{error}</p>}
+        </form>
       </div>
-
-      <Footer></Footer>
+      <div className="w-1/2 hidden md:block">
+        <img
+          src="src/assets/undraw_sign_up_n6im.svg"
+          alt=""
+          className="object-cover h-screen"
+        />
+      </div>
     </div>
   );
 };
